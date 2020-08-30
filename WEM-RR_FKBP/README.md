@@ -70,4 +70,7 @@ Scripts are available in the averaging and plotting directory.
 
 File names for plotting codes are self-explanatory.
 
+## Generating Ligand distribution Figures
+
+Scripts for this are in the directory ```Trajectory-data```. Description is provided in the README file therein.
 
