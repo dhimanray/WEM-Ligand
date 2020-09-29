@@ -1,0 +1,58 @@
+colvarsTrajFrequency      5000
+colvarsRestartFrequency  10000
+
+#protein center of mass fixing
+colvar {
+  name proteinCOM
+
+  distance {
+    group1 {
+      atomNumbersRange 1-1663 # Protein reference atoms
+    }
+    group2 {
+      dummyAtom (0.0, 0.0, 0.0) # set to initial position of group1 center
+    }
+  }
+}
+
+#protein-ligand distnace
+colvar {
+  name r
+
+  distance {
+    group1 {
+      atomNumbersRange 1-1663 # Protein reference atoms
+    }
+    group2 {
+      atomNumbersRange 1664-1677 # Ligand reference atoms
+    }
+  }
+
+   width 1.0
+   upperboundary 28.0
+   lowerboundary 0.0
+   #upperwallconstant 10.0
+   #lowerwallconstant 10.0 
+
+}
+
+
+
+harmonic {
+  colvars proteinCOM
+
+  centers 0.0
+  forceConstant 10.0
+}
+
+metadynamics {
+  name     meta-r # Run name
+  colvars  r # List the name of the CVs
+  hillWeight              0.2  # The height of the Gaussian hills
+  newHillFrequency        500  # The frequency of hills deposition
+  #dumpFreeEnergyFile      yes
+  writeHillsTrajectory    on
+  hillwidth               1.0
+  wellTempered            on
+  biasTemperature         1490  
+}
