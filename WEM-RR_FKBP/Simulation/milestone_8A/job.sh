@@ -10,13 +10,7 @@
 #PBS -M dray1@uci.edu
 #PBS -m a
 
-#module load cuda
-#export NAMD="/home/anupamc/NAMD_2.13b1_Linux-x86_64-multicore-CUDA"
-#export LD_LIBRARY_PATH="${NAMD}/libcudart.so.9.1"
 
-#cd /oasis/tscc/scratch/dray1/dhiman/DNA-Hoogsteen/ATATAT/production
-#module load 
-#/home/dray1/NAMD_2.13b2_Linux-x86_64-multicore-CUDA/namd2 +idlepoll +isomalloc_sync +p 2 production.conf > production.log
 
 cd /oasis/tscc/scratch/dray1/dhiman/WEM-Testing/FKBP/CHARMM36/WEM/constrain-release/trial_1/milestone_8A
 
@@ -25,9 +19,9 @@ source /home/dray1/Miniconda2/etc/profile.d/conda.sh
 conda activate westpa-2017.10
 
 #------------------- EQUILIBRATE --------------------------------#
-#cd prep/eq
-#/home/dray1/NAMD_2.13_Linux-x86_64-multicore-CUDA/namd2 +idlepoll +isomalloc_sync +p 4 equilibration.conf > equilibration.log
-#cd ../../
+cd prep/eq
+/home/dray1/NAMD_2.13_Linux-x86_64-multicore-CUDA/namd2 +idlepoll +isomalloc_sync +p 4 equilibration.conf > equilibration.log
+cd ../../
 
 #-------------------- INIT.SH -----------------------------------#
 # init.sh
